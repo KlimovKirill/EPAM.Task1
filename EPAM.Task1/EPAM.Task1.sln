@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPAM.Task1.SEQUENCE", "EPAM.Task1.SEQUENCE\EPAM.Task1.SEQUENCE.csproj", "{06AB8D9A-19D0-45CC-83A3-AED49227A6F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPAM.Task1.SIMPLE", "EPAM.Task1.SIMPLE\EPAM.Task1.SIMPLE.csproj", "{BE8F967E-78FA-487E-909B-D5078F91DF04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPAM.Task1.SQUARE", "EPAM.Task1.SQUARE\EPAM.Task1.SQUARE.csproj", "{DDF14AE8-4599-462F-8D0F-C81F0F118835}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06AB8D9A-19D0-45CC-83A3-AED49227A6F3}.Debug|x86.ActiveCfg = Debug|x86
+		{06AB8D9A-19D0-45CC-83A3-AED49227A6F3}.Debug|x86.Build.0 = Debug|x86
+		{06AB8D9A-19D0-45CC-83A3-AED49227A6F3}.Release|x86.ActiveCfg = Release|x86
+		{06AB8D9A-19D0-45CC-83A3-AED49227A6F3}.Release|x86.Build.0 = Release|x86
+		{BE8F967E-78FA-487E-909B-D5078F91DF04}.Debug|x86.ActiveCfg = Debug|x86
+		{BE8F967E-78FA-487E-909B-D5078F91DF04}.Debug|x86.Build.0 = Debug|x86
+		{BE8F967E-78FA-487E-909B-D5078F91DF04}.Release|x86.ActiveCfg = Release|x86
+		{BE8F967E-78FA-487E-909B-D5078F91DF04}.Release|x86.Build.0 = Release|x86
+		{DDF14AE8-4599-462F-8D0F-C81F0F118835}.Debug|x86.ActiveCfg = Debug|x86
+		{DDF14AE8-4599-462F-8D0F-C81F0F118835}.Debug|x86.Build.0 = Debug|x86
+		{DDF14AE8-4599-462F-8D0F-C81F0F118835}.Release|x86.ActiveCfg = Release|x86
+		{DDF14AE8-4599-462F-8D0F-C81F0F118835}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal
