@@ -6,24 +6,26 @@ namespace EPAM.Task1.SEQUENCE
     {
         public static void MakingString(int n) {
 
-            string resultString = null;
-
-            for (int i = 1; i <= n; i++) {
-                resultString += i;
+            for (int i = 1; i <= n; i++)
+            {
                 if (i != n)
-                    resultString += ", ";
+                {
+                    Console.Write($"{i}, ");
+                }
+                else
+                {
+                    Console.Write($"{i}");
+                }
             }
-
-            Console.WriteLine(resultString);
         }
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Enter number for sequence: ");
+
             int n = int.Parse(Console.ReadLine());
 
             MakingString(n);
-
-            Console.ReadKey();
         }
     }
 }

@@ -10,10 +10,14 @@ namespace EPAM.Task1.SQUARE
 
                 for (int j = 0; j < n; j++)
                 {
-                    if(i==(n-1)/2 && j==(n-1)/2)
+                    if (i == (n - 1) / 2 && j == (n - 1) / 2)
+                    {
                         Console.Write(" ");
+                    }
                     else
+                    {
                         Console.Write("*");
+                    }
                 }
 
                 Console.WriteLine();
@@ -22,11 +26,18 @@ namespace EPAM.Task1.SQUARE
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Enter the side of square (positive odd integer number): ");
+
             int n = int.Parse(Console.ReadLine());
 
-            MakingSquare(n);
-
-            Console.ReadKey();
+            if ( n > 1 && n % 2 != 0 && n % 1 == 0)
+            {
+                MakingSquare(n);
+            }
+            else
+            {
+                Console.WriteLine("Your number is wrong! Let's try again!");
+            }
         }
     }
 }
