@@ -7,15 +7,25 @@ namespace EPAM.Task2.Rectangle
         public static int InputChecking()
         {
             int n;
-            n = int.Parse(Console.ReadLine());
-            
-
+            try
+            {
+                n = int.Parse(Console.ReadLine());
+                while (n < 1 || n % 1 != 0)
+                {
+                    Console.WriteLine("The number should be positive and integer. Enter a new one: ");
+                    n = int.Parse(Console.ReadLine());
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Error. You should enter a positive and integer number. Enter a new one: ");
+                n = InputChecking();
+            }
             return n;
         }
 
         public static void Main(string[] args)
         {
-            
             Console.WriteLine("Enter the side A of rectangle: ");
             int a = InputChecking();
 
