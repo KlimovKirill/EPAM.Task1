@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2D52853B-62A3-4150-9DB5-9BF9CEAFB245}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EPAM.Task7.Common</RootNamespace>
+    <AssemblyName>EPAM.Task7.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DependencyResolver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EPAM.Task7.Awards.BLL.Interface\EPAM.Task7.Awards.BLL.Interface.csproj">
+      <Project>{8C1D67FD-84FA-4955-BDB4-E1D452A893CD}</Project>
+      <Name>EPAM.Task7.Awards.BLL.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EPAM.Task7.Awards.BLL\EPAM.Task7.Awards.BLL.csproj">
+      <Project>{C3D1F4D2-2E25-4B66-97F8-5A9E055A09F9}</Project>
+      <Name>EPAM.Task7.Awards.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EPAM.Task7.BLL\EPAM.Task7.Users.BLL.csproj">
+      <Project>{5729BA73-6EE2-497A-99F4-04EBDC3FE96D}</Project>
+      <Name>EPAM.Task7.Users.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EPAM.Task7.DAL.Interface\EPAM.Task7.DAL.Interface.csproj">
+      <Project>{477C0A7C-607A-4980-B3AE-5CC024AA5C99}</Project>
+      <Name>EPAM.Task7.DAL.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EPAM.Task7.DAL\EPAM.Task7.DAL.csproj">
+      <Project>{F930A31D-6472-4AB8-AC20-56B27EAFC861}</Project>
+      <Name>EPAM.Task7.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EPAM.Task7.Users.BLL.Interface\EPAM.Task7.Users.BLL.Interface.csproj">
+      <Project>{DA7C01CC-B09F-45AB-8592-30E5834BBF7C}</Project>
+      <Name>EPAM.Task7.Users.BLL.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
