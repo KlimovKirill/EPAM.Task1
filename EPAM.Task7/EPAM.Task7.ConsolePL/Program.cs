@@ -147,7 +147,7 @@ namespace Epam.Task7.ConsolePL
 
         private static void ShowUserById(IUserLogic userLogic)
         {
-            Console.Write("Enter award ID: ");
+            Console.Write("Enter user ID: ");
             try
             {
                 int id = int.Parse(Console.ReadLine());

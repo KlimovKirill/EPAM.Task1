@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Text;
+@using System.Threading.Tasks;
+@using EPAM.Task7.Awards.BLL.Interface;
+@using EPAM.Task7.Common;
+@using EPAM.Task7.Entities;
+@using EPAM.Task7.Users.BLL;
+@using EPAM.Task7.Users.BLL.Interface;
+@using System.Web.Mvc.Html;
+@using System.Web.Mvc.Razor;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AllUsers</title>
+    
+</head>
+<body>
+    <div>
+        There is a list of all users:
+        <br>
+        IMG   |   ID   |   NAME   |   AGE
+        @{
+            var userLogic = DependencyResolver.UserLogic;
+            var awardLogic = DependencyResolver.AwardLogic;
+
+            foreach (var user in userLogic.GetAll())
+            {
+                <div><img src=@user.url height="30" width="30" />@user <br />Awards:</div>
+
+                Dictionary<int, List<int>> awardId_UsersIDs = awardLogic.GetDictOfAwardsAndUsers();
+
+                foreach (var item in awardId_UsersIDs)
+                {
+                    if (item.Value.Contains(user.Id))
+                    {
+                        <div>
+                            <img src=@awardLogic.GetById(item.Key).url height="30" width="30" />  @awardLogic.GetById(item.Key)
+                        </div>
+                    }
+                }
+                <p>-----------------</p>
+            }
+        }
+    </div>
+    <button type="button" id="homeBtn">Home</button>
+    <script src="~/js/homeButton.js"></script>
+</body>
+</html>

@@ -11,8 +11,10 @@ namespace EPAM.Task7.Entities
         public int Id { get; set; }
 
         public string Name { get; set; }
-
+        
         public DateTime DateOfBirth { get; set; }
+
+        public string url = "http://www.p-etalon.ru/global/images/prod/nophoto.png";
 
         public int Age
         {

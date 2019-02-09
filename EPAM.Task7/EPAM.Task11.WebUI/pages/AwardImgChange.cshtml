@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Text;
+@using System.Threading.Tasks;
+@using EPAM.Task7.Awards.BLL.Interface;
+@using EPAM.Task7.Common;
+@using EPAM.Task7.Entities;
+@using EPAM.Task7.Users.BLL;
+@using EPAM.Task7.Users.BLL.Interface;
+@using System.Web.Mvc.Html;
+@using System.Web.Mvc.Razor;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ChangingAwardsImg</title>
+</head>
+<body>
+    <form action="~/pages/AwardImgChange" method="post">
+
+        <label>Award's id:</label>
+        <input type="number" name="aID" />
+        <label>New img's url:</label>
+        <input type="text" name="imgurl">
+
+        <button type="submit">Submit</button>
+        <button type="button" id="homeBtn">Home</button>
+    </form>
+
+    @{ if (IsPost)
+        {
+            int aID = int.Parse(Request.Params["aID"]);
+            string url = Request.Params["imgurl"];
+
+            var userLogic = DependencyResolver.UserLogic;
+            var awardLogic = DependencyResolver.AwardLogic;
+
+            awardLogic.GetById(aID).url = url;
+        }
+    }
+    <script src="~/js/homeButton.js"></script>
+</body>
+</html>

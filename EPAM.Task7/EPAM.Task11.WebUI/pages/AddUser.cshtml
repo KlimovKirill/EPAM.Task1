@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Text;
+@using System.Threading.Tasks;
+@using EPAM.Task7.Awards.BLL.Interface;
+@using EPAM.Task7.Common;
+@using EPAM.Task7.Entities;
+@using EPAM.Task7.Users.BLL;
+@using EPAM.Task7.Users.BLL.Interface;
+@using System.Web.Mvc.Html;
+@using System.Web.Mvc.Razor;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>AddUser</title>
+</head>
+<body>
+    <form action="~/pages/AddUser" method="post">
+
+        <label>User's name:</label>
+        <input type="text" name="username" />
+        <label>Date of birth:</label>
+        <input type="date" name="bdate">
+        <button type="submit">Submit</button>
+        <button type="button" id="homeBtn">Home</button>
+    </form>
+
+    @{ if (IsPost)
+        {
+            string name = Request.Params["username"];
+            DateTime bdate = DateTime.Parse(Request.Params["bdate"]);
+
+            var userLogic = DependencyResolver.UserLogic;
+            var user = new User();
+
+            user.Name = name;
+            user.DateOfBirth = bdate;
+
+            userLogic.Add(user);
+        }
+    }
+    <script src="~/js/homeButton.js"></script>
+</body>
+</html>

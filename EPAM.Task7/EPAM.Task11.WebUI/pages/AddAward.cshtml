@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Text;
+@using System.Threading.Tasks;
+@using EPAM.Task7.Awards.BLL.Interface;
+@using EPAM.Task7.Common;
+@using EPAM.Task7.Entities;
+@using EPAM.Task7.Users.BLL;
+@using EPAM.Task7.Users.BLL.Interface;
+@using System.Web.Mvc.Html;
+@using System.Web.Mvc.Razor;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddAward</title>
+</head>
+<body>
+    <form action="~/pages/AddAward" method="post">
+        <label>Award's title</label>
+        <input type="text" name="awardTitle" />
+        <button type="submit">Submit</button>
+        <button type="button" id="homeBtn">Home</button>
+    </form>
+
+    @{ if (IsPost)
+        {
+            string title = Request.Params["awardTitle"];
+
+            var userLogic = DependencyResolver.UserLogic;
+            var awardLogic = DependencyResolver.AwardLogic;
+
+            var award = new Award();
+
+            award.Title = title;
+            awardLogic.Add(award);
+        }
+    }
+    <script src="~/js/homeButton.js"></script>
+</body>
+</html>
