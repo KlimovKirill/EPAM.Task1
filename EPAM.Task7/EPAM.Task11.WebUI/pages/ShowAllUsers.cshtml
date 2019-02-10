@@ -21,7 +21,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>AllUsers</title>
-    
+
 </head>
 <body>
     <div>
@@ -34,20 +34,24 @@
 
             foreach (var user in userLogic.GetAll())
             {
-                <div><img src=@user.url height="30" width="30" />@user <br />Awards:</div>
-
-                Dictionary<int, List<int>> awardId_UsersIDs = awardLogic.GetDictOfAwardsAndUsers();
-
-                foreach (var item in awardId_UsersIDs)
+                <div><img src=@user.url height="30" width="30" />@user </div>
+                if (User.IsInRole("User"))
                 {
-                    if (item.Value.Contains(user.Id))
+                    <p>Awards:</p>
+
+                    Dictionary<int, List<int>> awardId_UsersIDs = awardLogic.GetDictOfAwardsAndUsers();
+
+                    foreach (var item in awardId_UsersIDs)
                     {
-                        <div>
-                            <img src=@awardLogic.GetById(item.Key).url height="30" width="30" />  @awardLogic.GetById(item.Key)
-                        </div>
+                        if (item.Value.Contains(user.Id))
+                        {
+                            <div>
+                                <img src=@awardLogic.GetById(item.Key).url height="30" width="30" />  @awardLogic.GetById(item.Key)
+                            </div>
+                        }
                     }
+                    <p>-----------------</p>
                 }
-                <p>-----------------</p>
             }
         }
     </div>

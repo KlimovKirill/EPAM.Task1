@@ -11,26 +11,58 @@
 </head>
 <body>
     <section class="wrapper">
+
+        @if (User.Identity.IsAuthenticated)
+        {
+
+            if (User.IsInRole("Admin"))
+            {
+                <p>Account type: Administrator</p>
+            }
+            else
+            {
+                <p>Account type: User</p>
+            }
+            <p>Username: @User.Identity.Name</p>
+            <a href="~/pages/Logout">Logout</a>
+        }
+        else
+        {
+            <a href="~/pages/Login">Login</a>
+        }
+        <br />
+
         <h2>Users management:</h2>
         <div class="userbuttons">
-            <button class="button" id="addUser">Add User</button>
-            <button class="button" id="delUser">Delete User</button>
             <button class="button" id="showUsers">Show all Users</button>
-            <button class="button" id="getUserById">Get User by ID</button>
+
+            @{ if (User.IsInRole("Admin"))
+                {
+                    <button class="button" id="addUser">Add User</button>
+                    <button class="button" id="delUser">Delete User</button>
+
+                    <button class="button" id="getUserById">Get User by ID</button>
+                }
+            }
         </div>
-        <h2>Awards management:</h2>
-        <div class="userbuttons">
-            <button class="button" id="addAward">Add Award</button>
-            <button class="button" id="delAward">Delete Award</button>
-            <button class="button" id="showAwards">Show all Awards</button>
-            <button class="button" id="getAwardById">Get Award by ID</button>
-            <button class="button" id="addAwardToUser">Add Award to User</button>
-        </div>
-        <h2>Changing Images:</h2>
-        <div class="changebuttons">
-            <button class="button" id="changeUserImg">Change User Image</button>
-            <button class="button" id="changeAwardImg">Change Award Image</button>
-        </div>
+        @{ if (User.IsInRole("Admin"))
+            {
+                <h2>Awards management:</h2>
+                <div class="userbuttons">
+
+                    <button class="button" id="addAward">Add Award</button>
+                    <button class="button" id="delAward">Delete Award</button>
+                    <button class="button" id="showAwards">Show all Awards</button>
+                    <button class="button" id="getAwardById">Get Award by ID</button>
+                    <button class="button" id="addAwardToUser">Add Award to User</button>
+                </div>
+                <h2>Changing Images:</h2>
+                <div class="changebuttons">
+                    <button class="button" id="changeUserImg">Change User Image</button>
+                    <button class="button" id="changeAwardImg">Change Award Image</button>
+                </div>
+            }
+        }
     </section>
     <script src="~/js/Scripts.js"></script>
 </body>

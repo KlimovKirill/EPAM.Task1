@@ -16,16 +16,16 @@ function redirect(url) {
 	location = url;
 }
 
+showUsersBtn.onclick = function () {
+    redirect('/pages/ShowAllUsers.cshtml');
+}
+
 addUserBtn.onclick = function () {
     redirect('/pages/AddUser.cshtml');
 }
 
 delUserBtn.onclick = function () {
     redirect('/pages/DeleteUser.cshtml');
-}
-
-showUsersBtn.onclick = function () {
-	redirect('/pages/ShowAllUsers.cshtml');
 }
 
 getUserbyIdBtn.onclick = function () {
