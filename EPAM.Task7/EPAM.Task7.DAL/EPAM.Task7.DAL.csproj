@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,10 +43,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AwardDao.cs" />
+    <Compile Include="AwardSQLDao.cs" />
     <Compile Include="UserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserSQLDao.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EPAM.Task7.Awards.BLL.Interface\EPAM.Task7.Awards.BLL.Interface.csproj">
+      <Project>{8c1d67fd-84fa-4955-bdb4-e1d452a893cd}</Project>
+      <Name>EPAM.Task7.Awards.BLL.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EPAM.Task7.Awards.BLL\EPAM.Task7.Awards.BLL.csproj">
+      <Project>{c3d1f4d2-2e25-4b66-97f8-5a9e055a09f9}</Project>
+      <Name>EPAM.Task7.Awards.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EPAM.Task7.DAL.Interface\EPAM.Task7.DAL.Interface.csproj">
       <Project>{477C0A7C-607A-4980-B3AE-5CC024AA5C99}</Project>
       <Name>EPAM.Task7.DAL.Interface</Name>
