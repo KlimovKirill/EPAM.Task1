@@ -14,6 +14,9 @@
 @using EPAM.Task7.Users.BLL.Interface;
 @using System.Web.Mvc.Html;
 @using System.Web.Mvc.Razor;
+@using System.Configuration;
+@using System.Data;
+@using System.Data.SqlClient;
 
 <!DOCTYPE html>
 
@@ -39,10 +42,25 @@
             int aID = int.Parse(Request.Params["aID"]);
             string url = Request.Params["imgurl"];
 
-            var userLogic = DependencyResolver.UserLogic;
-            var awardLogic = DependencyResolver.AwardLogic;
+            using (var sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Default"].ConnectionString))
+            {
+                var command = sqlConnection.CreateCommand();
+                command.CommandText = "AwardImgChange";
+                command.CommandType = CommandType.StoredProcedure;
 
-            awardLogic.GetById(aID).url = url;
+                var award = new Award();
+
+                award.Id = aID;
+                award.url = url;
+
+                SqlParameter parameterId = new SqlParameter("@Id", award.Id);
+                command.Parameters.Add(parameterId);
+                SqlParameter parameterUrl = new SqlParameter("@url", award.url);
+                command.Parameters.Add(parameterUrl);
+
+                sqlConnection.Open();
+                var reader = command.ExecuteNonQuery();
+            }
         }
     }
     <script src="~/js/homeButton.js"></script>
